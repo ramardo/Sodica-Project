@@ -1,1 +1,1 @@
-#Raidbot de discord sin soporte.
+# Raidbot de discord sin soporte.
